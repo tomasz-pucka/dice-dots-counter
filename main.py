@@ -31,7 +31,7 @@ def countDots(dice):
     keypoints = detector.detect(dice)
     return len(keypoints)
 
-url = 'http://192.168.0.13:8080/shot.jpg'
+url = 'http://192.168.43.1:8080/shot.jpg'
 window_names = ['Normal', 'Result']
 cv2.namedWindow(window_names[0], cv2.WINDOW_NORMAL)
 cv2.resizeWindow(window_names[0], 683, 385)
