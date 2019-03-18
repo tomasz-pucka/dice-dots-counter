@@ -37,20 +37,20 @@ cv2.namedWindow(window_names[0], cv2.WINDOW_NORMAL)
 cv2.resizeWindow(window_names[0], 683, 385)
 cv2.namedWindow(window_names[1], cv2.WINDOW_NORMAL)
 cv2.resizeWindow(window_names[1], 683, 385)
-#cap = cv2.VideoCapture(0)
+cap = cv2.VideoCapture(0)
 font = cv2.FONT_HERSHEY_SIMPLEX
 while(True):
 
     #capture from smartphone camera
-    #''' uncomment to set capture from smartphone camera
+    ''' uncomment to set capture from smartphone camera
     resp = ur.urlopen(url)
     img_np = np.asarray(bytearray(resp.read()), dtype="uint8")
     img_original = cv2.imdecode(img_np, cv2.IMREAD_COLOR)
-    #'''
+    '''
 
-    #capture from webcam
-    #ret, frame = cap.read() #uncomment to set capture from camera
-    #img_original = frame   #uncomment to set capture from camera
+    capture from webcam
+    ret, frame = cap.read() #uncomment to set capture from camera
+    img_original = frame   #uncomment to set capture from camera
 
     img_gamma = gamma_correction(img_original, 0.2)
     img_gray = cv2.cvtColor(img_gamma, cv2.COLOR_BGR2GRAY)
@@ -75,5 +75,5 @@ while(True):
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
 
-#cap.release()
+cap.release()
 cv2.destroyAllWindows()
